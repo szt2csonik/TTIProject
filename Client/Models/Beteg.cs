@@ -1,4 +1,4 @@
-using System.ComponentModel;
+Ôªøusing System.ComponentModel;
 using ViewModels.BaseClass;
 
 namespace TTIProject.Model
@@ -10,16 +10,16 @@ namespace TTIProject.Model
         /// </summary>
         private string _nev;
         /// <summary>
-        /// Beteg s˙lya (kg)
+        /// Beteg s√∫lya (kg)
         /// </summary>
         private double _suly;
         /// <summary>
-        /// Beteg magass·ga (mÈter)
+        /// Beteg magass√°ga (m√©ter)
         /// </summary>
         private double _magassag;
 
         /// <summary>
-        /// AlapÈrtelmezett konstruktor
+        /// Alap√©rtelmezett konstruktor
         /// </summary>
         public Beteg()
         {
@@ -29,7 +29,7 @@ namespace TTIProject.Model
         }
 
         /// <summary>
-        /// ÕrhatÛ tulajdons·gok
+        /// √çrhat√≥ tulajdons√°gok
         /// </summary>
         public string Nev
         {
@@ -49,8 +49,8 @@ namespace TTIProject.Model
         }
 
         /// <summary>
-        /// OlvashatÛ tulajdons·gok
-        /// Testtˆmeg index: kg / magass·g^2
+        /// Olvashat√≥ tulajdons√°gok
+        /// Testt√∂meg index: kg / magass√°g^2
         /// </summary>
         public double TTI
         {
@@ -66,7 +66,7 @@ namespace TTIProject.Model
         {
             get
             {
-                return _nev + " beteg testımeg indexe: " + TTI;
+                return _nev + " beteg test≈ëmeg indexe: " + TTI;
             }
         }
 

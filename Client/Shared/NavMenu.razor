@@ -1,17 +1,44 @@
-Import System.Runtime.InteropServices
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">TTIProject</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
 
-' In SDK-style projects such as this one, several assembly attributes that were historically
-' defined in this file are now automatically added during build and populated with
-' values defined in project properties. For details of which attributes are included
-' and how to customise this process see: https://aka.ms/assembly-info-properties
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="beteg">
+                <span class="oi oi-plus" aria-hidden="true"></span> TTI számítás
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </div>
+    </nav>
+</div>
 
+@code {
+    private bool collapseNavMenu = true;
 
-' Setting ComVisible to false makes the types in this assembly not visible to COM
-' components.  If you need to access a type in this assembly from COM, set the ComVisible
-' attribute to true on that type.
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-<Assembly: ComVisible(False)> 
-
-' The following GUID is for the ID of the typelib if this project is exposed to COM.
-
-<Assembly: Guid("13ac9f79-29b9-4ed3-8949-1a29a919c81b")> 
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

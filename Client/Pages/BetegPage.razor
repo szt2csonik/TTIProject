@@ -1,4 +1,4 @@
-@page "/beteg"
+ï»¿ï»¿@page "/beteg"
 @using System.ComponentModel;
 @using TTIProject.Model;
 
@@ -6,30 +6,32 @@
 <EditForm Model="@ViewModel" OnValidSubmit="@Compute">
      <div class="col-4">
         <div class="form-group">
-            <label for="nev">Név</label>
+            <label for="nev">NÃ©v</label>
             <InputText class="form-control" id="nev" @bind-Value="@ViewModel.Nev" />
         </div>
         <div class="form-group">
-            <label for="suly">Súly</label>
+            <label for="suly">SÃºly</label>
             <InputText class="form-control" id="suly" @bind-Value="@ViewModel.Suly"></InputText>
         </div>
         <div class="form-group">
-            <label for="magassag">Magasság</label>
+            <label for="magassag">MagassÃ¡g</label>
             <InputText class="form-control" id="magasag" @bind-Value="@ViewModel.Magassag"></InputText>
         </div>
-        <button class="mt-2" type="submit" disabled="@ViewModel.IsBusy">TTI meghatározás</button>
+        <button class="mt-2" type="submit" disabled="@ViewModel.IsBusy">TTI meghatÃ¡rozÃ¡s</button>
      </div>
 </EditForm>
 <div class="card mt-2 p-2">
-    <h5 class="card-title">Kiértékelés</h5>
+    <h5 class="card-title">KiÃ©rtÃ©kelÃ©s</h5>
     <div class="card-body">
         <p>TTI: @ViewModel.TTI</p>
-        <p>Értékelés: @ViewModel.BetegAdatok</p>
+        <p>Ã‰rtÃ©kelÃ©s: @ViewModel.BetegAdatok</p>
     </div>
 </div>
 
 @code {
+
     private Beteg ViewModel = new Beteg();
+
     protected override async Task OnInitializedAsync()
     {
         ViewModel.PropertyChanged += async (sender, e) =>
@@ -41,6 +43,7 @@
         };
         await base.OnInitializedAsync();
     }
+
     async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
     {
         await InvokeAsync(() =>
@@ -48,6 +51,7 @@
             StateHasChanged();
         });
     }
+
     public void Dispose()
     {
         ViewModel.PropertyChanged -= OnPropertyChangedHandler;

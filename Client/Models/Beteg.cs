@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using ViewModels.BaseClass;
+
 namespace TTIProject.Model
 {
     public class Beteg : ViewModelBase
@@ -16,6 +17,7 @@ namespace TTIProject.Model
         /// Beteg magassága (méter)
         /// </summary>
         private double _magassag;
+
         /// <summary>
         /// Alapértelmezett konstruktor
         /// </summary>
@@ -25,6 +27,7 @@ namespace TTIProject.Model
             _suly = 60;
             _magassag = 1.6;
         }
+
         /// <summary>
         /// Írható tulajdonságok
         /// </summary>
@@ -58,6 +61,7 @@ namespace TTIProject.Model
                 return roundedTTI;
             }
         }
+
         public string BetegAdatok
         {
             get

@@ -1,17 +1,32 @@
-using System.Runtime.InteropServices;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-// In SDK-style projects such as this one, several assembly attributes that were historically
-// defined in this file are now automatically added during build and populated with
-// values defined in project properties. For details of which attributes are included
-// and how to customise this process see: https://aka.ms/assembly-info-properties
+namespace ViewModels.BaseClass
+{
+    public class ViewModelBase : INotifyPropertyChanged
+    {
+        private bool isBusy = false;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                SetValue(ref isBusy, value);
+            }
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
-// Setting ComVisible to false makes the types in this assembly not visible to COM
-// components.  If you need to access a type in this assembly from COM, set the ComVisible
-// attribute to true on that type.
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-[assembly: ComVisible(false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM.
-
-[assembly: Guid("d839b14b-3c52-405f-9096-f10e20c76e2b")]
+        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
+            backingFiled = value;
+            OnPropertyChanged(propertyName);
+        }
+    }
+}
